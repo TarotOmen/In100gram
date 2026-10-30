@@ -1,0 +1,13 @@
+name: Keep In100gram Render Alive
+
+on:
+  schedule:
+    - cron: '*/12 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping In100gram health endpoint
+        run: curl -fsS --retry 2 --retry-delay 5 https://in100gram-2.onrender.com/health
