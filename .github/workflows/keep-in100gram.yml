@@ -1,0 +1,14 @@
+name: Keep In100gram Render Alive
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Ping In100gram Render
+        run: curl -fsS --connect-timeout 20 --max-time 90 --retry 5 --retry-all-errors --retry-delay 10 https://ln100gram-new.onrender.com
