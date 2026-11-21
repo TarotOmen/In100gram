@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Ping In100gram Render
         run: >-
-          curl -sS -o /dev/null -w 'HTTP %{http_code}\n'
+          curl --fail -sS -o /dev/null -w 'HTTP %{http_code}\n'
           --connect-timeout 20 --max-time 90 --retry 5 --retry-all-errors --retry-delay 10
           https://ln100gram-new-z3ul.onrender.com
   ping-tarot:
@@ -21,6 +21,6 @@ jobs:
     steps:
       - name: Ping Tarot Render
         run: >-
-          curl -sS -o /dev/null -w 'HTTP %{http_code}\n'
+          curl --fail -sS -o /dev/null -w 'HTTP %{http_code}\n'
           --connect-timeout 20 --max-time 90 --retry 5 --retry-all-errors --retry-delay 10
           https://tarot-omen1-new-hfhf.onrender.com/health
